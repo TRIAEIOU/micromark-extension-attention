@@ -38,7 +38,8 @@
   ],
   "exports": {
     "development": "./dev/index.js",
-    "default": "./index.js"
+    "default": "./index.js",
+    "lib/*": "./lib/*"
   },
   "dependencies": {
     "micromark-util-types": "^1.0.0",
