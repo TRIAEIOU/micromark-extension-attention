@@ -21,7 +21,7 @@
  *   Internal unique denominator
  * @property {number} symbolLen
  *   Length of symbol(s), e.g. 2 for '~~'
-*/
+ */
 
 import {ok as assert} from 'uvu/assert'
 import {splice} from 'micromark-util-chunked'
@@ -40,7 +40,9 @@ import {types} from 'micromark-util-symbol/types.js'
  *   Syntax extension for micromark (passed in `extensions`).
  */
 export function inlineFactory(cfg) {
-  const {code, mdastNode, htmlNode, sequence, tempSequence, typeText, symbolLen} = {...cfg};
+  const {code, mdastNode, sequence, tempSequence, typeText, symbolLen} = {
+    ...cfg
+  }
   const tokenizer = {
     tokenize: tokenizeInline,
     resolveAll: resolveAllInline
@@ -153,7 +155,7 @@ export function inlineFactory(cfg) {
 
     /** @type {State} */
     function start(_code) {
-      assert(_code === code, 'expected `${code}`')
+      assert(_code === code, 'expected `' + code + '`')
 
       if (
         previous === _code &&

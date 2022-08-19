@@ -4,10 +4,24 @@ import path from 'node:path'
 import test from 'tape'
 import {micromark} from 'micromark'
 import {createGfmFixtures} from 'create-gfm-fixtures'
-import {
-  gfmStrikethrough as syntax,
-  gfmStrikethroughHtml as html
-} from '../dev/index.js'
+import {inlineFactory, inlineFactoryHtml} from '../dev/index.js'
+
+const strikethrough = {
+  markdownSymbol: '~~',
+  mdastNode: 'strikethrough',
+  htmlNode: 'del',
+  code: Number('~'),
+  sequence: 'strikethroughSequence',
+  tempSequence: 'strikethroughTempSequence',
+  typeText: 'strikeThroughText',
+  symbolLen: 2
+}
+
+const syntax = function () {
+  return inlineFactory(strikethrough)
+}
+
+const html = inlineFactoryHtml(strikethrough)
 
 test('markdown -> html (micromark)', (t) => {
   const defaults = syntax()
@@ -17,8 +31,8 @@ test('markdown -> html (micromark)', (t) => {
       extensions: [defaults],
       htmlExtensions: [html]
     }),
-    '<p>a <del>b</del></p>',
-    'should support strikethrough w/ one tilde'
+    '<p>a ~b~</p>',
+    'should not support strikethrough w/ one tilde'
   )
 
   t.deepEqual(
@@ -58,7 +72,7 @@ test('markdown -> html (micromark)', (t) => {
   )
 
   t.deepEqual(
-    micromark('a ~-1~ b', {
+    micromark('a ~~-1~~ b', {
       extensions: [defaults],
       htmlExtensions: [html]
     }),
@@ -67,7 +81,7 @@ test('markdown -> html (micromark)', (t) => {
   )
 
   t.deepEqual(
-    micromark('a ~b.~ c', {
+    micromark('a ~~b.~~ c', {
       extensions: [defaults],
       htmlExtensions: [html]
     }),
@@ -76,30 +90,12 @@ test('markdown -> html (micromark)', (t) => {
   )
 
   t.deepEqual(
-    micromark('~b.~.', {
-      extensions: [syntax({singleTilde: true})],
+    micromark('~~b.~~.', {
+      extensions: [syntax()],
       htmlExtensions: [html]
     }),
     '<p><del>b.</del>.</p>',
     'should close if preceded and followed by punctuation (del)'
-  )
-
-  t.deepEqual(
-    micromark('a ~b~ ~~c~~ d', {
-      extensions: [syntax({singleTilde: false})],
-      htmlExtensions: [html]
-    }),
-    '<p>a ~b~ <del>c</del> d</p>',
-    'should not support strikethrough w/ one tilde if `singleTilde: false`'
-  )
-
-  t.deepEqual(
-    micromark('a ~b~ ~~c~~ d', {
-      extensions: [syntax({singleTilde: true})],
-      htmlExtensions: [html]
-    }),
-    '<p>a <del>b</del> <del>c</del> d</p>',
-    'should support strikethrough w/ one tilde if `singleTilde: true`'
   )
 
   t.end()
