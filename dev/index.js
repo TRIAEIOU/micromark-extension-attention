@@ -1,5 +1,6 @@
 /**
- * @typedef {import('./lib/syntax.js').Options} Options
+ * @typedef {import('./lib/syntax.js').Configuration} Configuration
  */
-export {gfmStrikethroughHtml} from './lib/html.js'
-export {gfmStrikethrough} from './lib/syntax.js'
+ export {inlineFactoryHtml} from './lib/html.js'
+ export {inlineFactory} from './lib/syntax.js'
+ 

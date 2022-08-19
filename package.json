@@ -1,7 +1,7 @@
 {
-  "name": "micromark-extension-gfm-strikethrough",
+  "name": "micromark-extension-inline-factory",
   "version": "1.0.4",
-  "description": "micromark extension to support GFM strikethrough",
+  "description": "micromark-extension-gfm-strikethrough fork to factory for generating arbitrary inline syntax",
   "license": "MIT",
   "keywords": [
     "micromark",
@@ -16,15 +16,15 @@
     "markdown",
     "unified"
   ],
-  "repository": "micromark/micromark-extension-gfm-strikethrough",
-  "bugs": "https://github.com/micromark/micromark-extension-gfm-strikethrough/issues",
+  "repository": "TRIAEIOU/micromark-extension-inline-factory",
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/unified"
   },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+    "https://github.com/TRIAEIOU"
   ],
   "sideEffects": false,
   "type": "module",
@@ -41,10 +41,6 @@
     "default": "./index.js"
   },
   "dependencies": {
-    "micromark-util-chunked": "^1.0.0",
-    "micromark-util-classify-character": "^1.0.0",
-    "micromark-util-resolve-all": "^1.0.0",
-    "micromark-util-symbol": "^1.0.0",
     "micromark-util-types": "^1.0.0",
     "uvu": "^0.5.0"
   },
