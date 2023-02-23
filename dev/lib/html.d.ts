@@ -14,19 +14,19 @@
  * @param {Configuration} cfg
  * @returns {HtmlExtension}
  */
-export function inlineFactoryHtml(cfg: Configuration): HtmlExtension
-export type HtmlExtension = import('micromark-util-types').HtmlExtension
-export type Handles = import('micromark-util-types').Handles
+export function inlineFactoryHtml(cfg: Configuration): HtmlExtension;
+export type HtmlExtension = import('micromark-util-types').HtmlExtension;
+export type Handles = import('micromark-util-types').Handles;
 /**
  * Configuration for emphasis type to generate.
  */
 export type Configuration = {
-  /**
-   * Mdast node name
-   */
-  mdastNode: string
-  /**
-   * HTML node (tag) name, eg 'sup' for a '<sup>' tag
-   */
-  htmlNode: string
-}
+    /**
+     * Mdast node name
+     */
+    mdastNode: string;
+    /**
+     * HTML node (tag) name, eg 'sup' for a '<sup>' tag
+     */
+    htmlNode: string;
+};
