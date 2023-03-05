@@ -4,12 +4,12 @@ import path from 'node:path'
 import test from 'tape'
 import {micromark} from 'micromark'
 import {createGfmFixtures} from 'create-gfm-fixtures'
-import {attention, attentionHtml, codes} from '../dev/index.js'
+import {attention, attentionHtml} from '../dev/index.js'
 
 const cfg = {
   mdastNodeName: 'superscript',
   hastNodeName: 'sup',
-  code: codes.caret
+  char: '^'
 }
 
 test('markdown -> html (micromark)', (t) => {
