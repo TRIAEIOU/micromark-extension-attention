@@ -8,7 +8,8 @@
  * @typedef Options
  * @property {string} mdastNodeName
  * @property {string} hastNodeName
- * @property {Code} code
+ * @property {string} char
+ * @property {Code} [code]
  */
 
 import {splice} from 'micromark-util-chunked'
@@ -17,7 +18,6 @@ import {resolveAll} from 'micromark-util-resolve-all'
 import {constants} from 'micromark-util-symbol/constants.js'
 import {types} from 'micromark-util-symbol/types.js'
 
-export {codes} from 'micromark-util-symbol/codes.js'
 /**
  * Function that can be called to get a syntax extension for micromark (passed
  * in `extensions`).
@@ -36,6 +36,7 @@ export function attention(options) {
     tokenize: tokenizeAttention,
     resolveAll: resolveAllAttention
   }
+  options.code = options['char'].charCodeAt(0)
 
   return {
     // @ts-ignore Number

@@ -11,15 +11,11 @@
  * @return HtmlExtension
  */
 export function attentionHtml(options: Options): {
-    enter: {
-        [x: string]: () => void;
-    };
-    exit: {
-        [x: string]: () => void;
-    };
-};
-export type HtmlExtension = import('micromark-util-types').HtmlExtension;
+  enter: Record<string, () => void>
+  exit: Record<string, () => void>
+}
+export type HtmlExtension = import('micromark-util-types').HtmlExtension
 export type Options = {
-    mdastNodeName: string;
-    hastNodeName: string;
-};
+  mdastNodeName: string
+  hastNodeName: string
+}
