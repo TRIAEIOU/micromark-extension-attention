@@ -5,8 +5,8 @@
   - Parameterize gfmStrikethroughHtml to attentionHtml({mdastNodeName: str, hastNodeName: str})
   - Replace tag and function names
 - Syntax.js:
-  - Export typedef `codes`
-  - Parameterize gfmStrikethrough to attention({mdastNodeName: str, hastNodeName: str, code: Code})
+  - Prefer using char rather than char code, char code is only needed here so convert char from charCodeAt(0)
+  - Parameterize gfmStrikethrough to attention({mdastNodeName: str, hastNodeName: str, char: str})
     - Convert single-or-double checks to single only.
     - Find all `*strikethrough*` strings and convert to constants set to relevant strings from opts
 - test.js:
