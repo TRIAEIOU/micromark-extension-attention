@@ -1,6 +1,6 @@
 # micromark-extension-attention
 
-Create single char emphasis style markers, e.g. underline. Requires [mdast-util-attention](https://github.com/TRIAEIOU/mdast-util-attention).
+Forked from [micromark-extension-gfm-strikethrough](https://github.com/micromark/micromark-extension-gfm-strikethrough) and modified to create single char emphasis style markers, e.g. underline. Requires [mdast-util-attention](https://github.com/TRIAEIOU/mdast-util-attention).
 
 ## Modifcations from micromark-extension-gfm-strikthrough
 
